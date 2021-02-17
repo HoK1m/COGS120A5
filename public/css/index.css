@@ -1,0 +1,114 @@
+body {
+    background-color: gray;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+}
+
+.headerbar {
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0 5vw;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+}
+
+.logo span {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: black;
+}
+
+.menuBtn {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+}
+
+.menu {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    background: #fff;
+    transform: translateY(-100%);
+    transition: transform .25s ease;
+}
+
+.visible {
+    transform: none;
+}
+
+.menu div {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    all: unset;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5vw;
+}
+
+input {
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px;
+}
+
+.secondLine {
+    display: flex;
+    flex-direction: row;
+}
+
+.dimension {
+    display: flex;
+    flex-direction: row;
+}
+
+.insValue {
+    display: none;
+}
+
+.visible1 {
+    display: block;
+}
+
+.submitBtn {
+    margin-top: 5vh;
+}

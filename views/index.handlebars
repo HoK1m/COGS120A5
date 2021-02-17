@@ -1,0 +1,142 @@
+<html>
+
+<head>
+	<title>SpaceShip by Team Astronauts</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="headerbar">
+			<div class="logo">
+				<a href="/">
+					<span>SPACESHIP</span>
+				</a>
+			</div>
+			<div class="menuBtn">
+				<a>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+						<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+					</svg>
+				</a>
+			</div>
+		</div>
+		<div class="menu">
+			<div>
+				<a>
+					<span>Home</span>
+				</a>
+				<a>
+					<span>Calculator</span>
+				</a>
+				<a>
+					<span>About</span>
+				</a>
+			</div>
+		</div>
+		<script>
+
+			(function () {
+				var btn = document.querySelector("header .menuBtn");
+				var menu = document.querySelector("header .menu");
+				btn.onclick = function () {
+					menu.classList.toggle("visible");
+				}
+			})();
+
+		</script>
+	</header>
+
+	<div class="calculator">
+		<h2>
+			<u>Shipping Calculator</u>
+		</h2>
+		<form id="packageForm" role="form" method="get" action="/results">
+			<h4>Origin</h4>
+			<input type="text" placeholder="Street Address" required>
+			<div class="secondLine">
+				<input type="text" placeholder="City" style="width: 50%" required id="fromCity" name="fromCity">
+				<input type="text" placeholder="State" maxlength="2" style="width: 15%"
+					oninput="this.value = this.value.toUpperCase()" required id="fromState" name="fromState">
+				<input type="number" placeholder="Zipcode" style="width: 35%" minlength="5" maxlength="5" required id="fromZip" name="fromZip">
+			</div>
+
+			<h4>Destination</h4>
+			<input type="text" placeholder="Street Address" required>
+			<div class="secondLine">
+				<input type="text" placeholder="City" style="width: 50%" required id="toCity" name="toCity">
+				<input type="text" placeholder="State" maxlength="2" style="width: 15%"
+					oninput="this.value = this.value.toUpperCase()" required id="toState" name="toState">
+				<input type="number" placeholder="Zipcode" style="width: 35%" minlength="5" maxlength="5" required id="toZip" name="toZip">
+			</div>
+
+			<h4>Package Dimensions</h4>
+			<div class="dimension">
+				<input type="number" placeholder="Length" style="width: 70%" required>
+				<select style="width: 30%">
+					<option>Millimeters</option>
+					<option>Inches</option>
+				</select>
+			</div>
+			<div class="dimension">
+				<input type="number" placeholder="Width" style="width: 70%" required>
+				<select style="width: 30%">
+					<option>Millimeters</option>
+					<option>Inches</option>
+				</select>
+			</div>
+			<div class="dimension">
+				<input type="number" placeholder="Height" style="width: 70%" required>
+				<select style="width: 30%">
+					<option>Millimeters</option>
+					<option>Inches</option>
+				</select>
+			</div>
+
+			<h4>Package Weight</h4>
+			<div class="dimension">
+				<input type="number" placeholder="Weight" style="width: 70%" required>
+				<select style="width: 30%">
+					<option>Kilograms</option>
+					<option>Pounds</option>
+				</select>
+			</div>
+
+			<h4>Options</h4>
+			<label>
+				<input type="checkbox">
+				Signature Confirmation
+			</label>
+			<div>
+				<label>
+					<input type="checkbox" class="insCheck">
+					Package Insurance
+				</label>
+				<div class="insValue">
+					<input type="number" placeholder="Package Value ($)" js-trim-chars="$ ">
+				</div>
+				<script>
+
+					(function () {
+						var check = document.querySelector(".insCheck");
+						var value = document.querySelector(".insValue");
+						check.onclick = function () {
+							value.classList.toggle("visible1");
+						}
+					})();
+
+				</script>
+			</div>
+
+			<input type="submit" value="Calculate Shipping" class="submitBtn">
+		</form>
+	</div>
+
+</body>
+
+</html>

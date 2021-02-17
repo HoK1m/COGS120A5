@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>SpaceShip by Team Astronauts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/css/results.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="headerbar">
+            <div class="logo">
+                <a href="/">
+                    <span>SPACESHIP</span>
+                </a>
+            </div>
+            <div class="menuBtn">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div>
+                <a>
+                    <span>Home</span>
+                </a>
+                <a>
+                    <span>Calculator</span>
+                </a>
+                <a>
+                    <span>About</span>
+                </a>
+            </div>
+        </div>
+        <script>
+
+            (function () {
+                var btn = document.querySelector("header .menuBtn");
+                var menu = document.querySelector("header .menu");
+                btn.onclick = function () {
+                    menu.classList.toggle("visible");
+                }
+            })();
+
+        </script>
+    </header>
+
+    <div class="results">
+        <h2>
+            <u>Shipping Options</u>
+        </h2>
+
+        <div class="details">
+            <h4>Shipping Details</h4>
+            <div class="detail-location">
+                <b>Origin:&nbsp;</b>
+                <p>{{details.fromCity}}, {{details.fromState}}, {{details.fromZip}}</p>
+            </div>
+            <div class="detail-location">
+                <b>Destination:&nbsp;</b>
+                <p>{{details.toCity}}, {{details.toState}}, {{details.toZip}}</p>
+            </div>
+        </div>
+
+        {{#each options}}
+        <div class="options">
+            <div class="img">
+                <img src="#" alt="carrierlogo" class="carrierimg img-responsive img-rounded"/>
+            </div>
+            <div style="width: 60%; justify-content: flex-end;">
+                <p style="margin: 0;"><b>Service: </b>{{service}}</p>
+                <p style="margin: 0.5rem 0;"><b>Time: </b>{{time}}</p>
+                <p style="margin: 0;"><b>Price: </b>{{price}}</p>
+            </div>
+            <script data={{carrier}}>
+                var img = document.getElementsByClassName("carrierimg")[{{@index}}];
+                if (document.currentScript.getAttribute('data') === "USPS") {
+                    img.setAttribute("src", "https://mailomg.files.wordpress.com/2017/09/usps_eagle-symbol.png");
+                } else if (document.currentScript.getAttribute('data') == "FedEx") {
+                    img.setAttribute("src", "http://4.bp.blogspot.com/-8qFlLqWHhqI/U6gzRjwnayI/AAAAAAAAgPo/miK3bshfv_k/s1600/FedEx+logo+1994.png");
+                } else if (document.currentScript.getAttribute('data') == "UPS") {
+                    img.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/United_Parcel_Service_logo_2014.svg/1200px-United_Parcel_Service_logo_2014.svg.png");
+                }
+            </script>
+        </div>
+        {{/each}}
+    </div>
+
+</body>
+
+</html>
